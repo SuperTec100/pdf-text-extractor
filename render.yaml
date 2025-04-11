@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: pdf-server
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node index.js
+    rootDir: server
+
+  - type: web
+    name: pdf-client
+    env: static
+    plan: free
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    rootDir: client
